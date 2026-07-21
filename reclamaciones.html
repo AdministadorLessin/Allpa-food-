@@ -93,6 +93,17 @@
     color:var(--green-dark);
   }
   .rec-confirmation.show{display:block}
+  .rec-error{
+    display:none;
+    background:#FCFCFA;
+    border:1px solid rgba(24,58,42,0.18);
+    border-radius:18px;
+    padding:20px 24px;
+    margin-top:24px;
+    font:500 14.5px/1.6 Inter,sans-serif;
+    color:var(--ink);
+  }
+  .rec-error.show{display:block}
   .rec-legal-note{
     font:400 13.5px/1.6 Inter,sans-serif;
     color:var(--ink-soft);
@@ -236,14 +247,13 @@
       <span>He leído y acepto la <a href="privacidad.html">política de privacidad</a>. *</span>
     </label>
 
-    <!-- TODO: conectar a servicio de formularios (Formspree). Reemplazar
-         el preventDefault del submit por el envío real (fetch a la URL
-         de Formspree, o quitar el preventDefault y setear
-         action="https://formspree.io/f/TU_ID" method="POST" en <form>). -->
     <button type="submit" class="rec-submit" id="rec-submit-btn">Enviar</button>
 
     <div class="rec-confirmation" id="rec-confirmation" role="status" aria-live="polite">
       ¡Listo! Tu reclamación fue registrada. Te responderemos al correo o teléfono indicado en un plazo no mayor a quince (15) días hábiles.
+    </div>
+    <div class="rec-error" id="rec-error" role="alert" aria-live="assertive">
+      No pudimos enviar tu reclamación. Revisa tu conexión e inténtalo de nuevo, o escríbenos directamente por WhatsApp.
     </div>
   </form>
 
@@ -312,9 +322,13 @@
     });
   }
 
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdnvvqd';
+
   var form = document.getElementById('rec-form');
   var confirmation = document.getElementById('rec-confirmation');
+  var errorBox = document.getElementById('rec-error');
   var submitBtn = document.getElementById('rec-submit-btn');
+  var correoInput = document.getElementById('rec-correo');
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -324,18 +338,34 @@
       return;
     }
 
-    // TODO: conectar a servicio de formularios (Formspree) aquí.
-    // Ejemplo cuando esté listo el endpoint:
-    // fetch('https://formspree.io/f/TU_ID', {
-    //   method: 'POST',
-    //   headers: { 'Accept': 'application/json' },
-    //   body: new FormData(form)
-    // }).then(...);
-
+    errorBox.classList.remove('show');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviado ✓';
-    confirmation.classList.add('show');
-    confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    submitBtn.textContent = 'Enviando…';
+
+    var formData = new FormData(form);
+    formData.append('_subject', 'Nuevo registro — Libro de Reclamaciones Allpa Food');
+    // El campo del formulario se llama "correo", no "email"; Formspree usa
+    // _replyto para poder responder directo al consumidor desde el correo.
+    if (correoInput) formData.append('_replyto', correoInput.value);
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    }).then(function(response){
+      if (response.ok){
+        submitBtn.textContent = 'Enviado ✓';
+        confirmation.classList.add('show');
+        confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error('Formspree respondió ' + response.status);
+      }
+    }).catch(function(err){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar';
+      errorBox.classList.add('show');
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
   });
 })();
 </script>
