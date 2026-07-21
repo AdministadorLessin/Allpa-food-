@@ -1,0 +1,71 @@
+
+.loadingIsotipo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.loadingIsotipo {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+.loadingIsotipo.closing {
+  opacity: 0;
+}
+
+.loadingIsotipo {
+
+  .draw-path {
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    /* valor grande para cubrir el path */
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+
+    animation:
+      drawSvg 1.5s ease forwards,
+      fillSvg .5s ease forwards 1.5s;
+  }
+
+  .draw-path-1 {
+    stroke: #3cfb9f;
+    fill: #3cfb9f;
+  }
+
+  .draw-path-2 {
+    stroke: #183a2a;
+    fill: #183a2a;
+
+    /* empieza después del primero */
+    animation:
+      drawSvg 1.5s ease forwards 0.8s,
+      fillSvg .5s ease forwards 2.3s;
+  }
+}
+
+@keyframes drawSvg {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillSvg {
+  to {
+    fill-opacity: 1;
+  }
+}
