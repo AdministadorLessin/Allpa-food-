@@ -1,0 +1,284 @@
+/* beneficios.css — Directorio de convenios Allpa+ (Landing/beneficios.html)
+   Reutiliza variables, header, footer y CTA de assets/allpaplus.css
+   (enlazado antes que este archivo). Aquí solo lo específico de beneficios. */
+
+.bn-breadcrumb{font:400 13px Inter;color:var(--ink-soft);margin:0 0 20px}
+.bn-breadcrumb a{color:var(--ink-soft);text-decoration:underline}
+.bn-breadcrumb a:hover{color:var(--green-dark)}
+
+/* --- 1. Hero con malla --- */
+.bn-hero{
+  position:relative;border-radius:22px;overflow:hidden;background:#FCFCFA;
+  padding:44px 32px 26px;
+}
+.bn-mesh{
+  position:absolute;inset:-80px;filter:blur(60px);opacity:.85;
+  overflow:hidden;pointer-events:none;z-index:0;
+}
+.bn-blob{position:absolute;width:420px;height:420px;border-radius:50%;animation:bn-drift 24s ease-in-out infinite}
+.bn-blob-1{background:#C8EFDA;left:12%;top:20%;margin-left:-210px;margin-top:-210px;animation-delay:-0s}
+.bn-blob-2{background:#D6E8EC;left:84%;top:10%;margin-left:-210px;margin-top:-210px;animation-delay:-4s}
+.bn-blob-3{background:#E8DAE8;left:70%;top:82%;margin-left:-210px;margin-top:-210px;animation-delay:-8s}
+.bn-blob-4{background:#F2E5D2;left:26%;top:92%;margin-left:-210px;margin-top:-210px;animation-delay:-12s}
+.bn-blob-5{background:#DFF5E8;left:97%;top:58%;margin-left:-210px;margin-top:-210px;animation-delay:-16s}
+@keyframes bn-drift{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(18px,-14px)}
+}
+@media(prefers-reduced-motion:reduce){.bn-blob{animation:none}}
+.bn-hero-content{position:relative;z-index:1}
+.bn-hero-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(10px);
+  font:500 12px Inter;letter-spacing:.06em;color:var(--green-dark);
+  padding:7px 14px;border-radius:100px;margin-bottom:18px;
+}
+.bn-hero h1{font:500 38px/1.18 Inter;letter-spacing:-.01em;color:var(--ink);margin:0 0 12px}
+.bn-hero h1 .accent{color:var(--green)}
+.bn-hero p{font:400 15px/1.5 Inter;color:var(--ink-soft);max-width:48ch;margin:0 0 28px}
+
+/* --- 2. Banda de datos --- */
+.bn-stats{
+  position:relative;z-index:1;background:#fff;border-radius:18px;
+  box-shadow:0 2px 20px rgba(24,58,42,.06);
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;
+}
+.bn-stat{padding:22px 24px;border-right:.5px solid rgba(24,58,42,.1)}
+.bn-stat:last-child{border-right:none}
+.bn-stat-avatars{display:flex;margin-bottom:10px}
+.bn-stat-avatars span{
+  width:34px;height:34px;border-radius:50%;border:2px solid #fff;margin-left:-11px;
+  display:flex;align-items:center;justify-content:center;flex:none;
+  background:#DDE3DF;font:500 11px Inter;color:var(--ink-soft);
+  transform:scale(.8);opacity:0;transition:transform .35s cubic-bezier(0.22,1,0.36,1),opacity .35s cubic-bezier(0.22,1,0.36,1);
+}
+.bn-stat-avatars span:first-child{margin-left:0}
+.bn-stat-avatars.bn-in span{transform:none;opacity:1}
+.bn-stat-avatars.bn-in span:nth-child(1){transition-delay:0ms}
+.bn-stat-avatars.bn-in span:nth-child(2){transition-delay:70ms}
+.bn-stat-avatars.bn-in span:nth-child(3){transition-delay:140ms}
+.bn-stat-avatars.bn-in span:nth-child(4){transition-delay:210ms}
+.bn-stat-avatars .bn-avatar-more{background:var(--mint);color:var(--green-dark);font-weight:500}
+.bn-stat p{font:400 14px Inter;color:var(--ink-soft);margin:0}
+.bn-stat-num{font:500 34px Inter;color:var(--green-dark);letter-spacing:-.01em;display:block;margin-bottom:4px}
+.bn-stat-sub{font:400 12px Inter;color:var(--ink-soft);margin:0}
+.bn-stat-exclusive{background:#183A2A;position:relative;overflow:hidden;border-radius:0 18px 18px 0}
+.bn-stat-exclusive .bn-decor{
+  position:absolute;left:-40px;bottom:-40px;width:140px;height:140px;border-radius:50%;
+  background:rgba(60,251,159,.10);
+}
+.bn-stat-exclusive-chip{
+  position:relative;display:inline-block;background:rgba(60,251,159,.15);color:var(--green);
+  font:500 11px Inter;padding:4px 10px;border-radius:100px;margin-bottom:10px;
+}
+.bn-stat-exclusive-val{position:relative;font:500 30px Inter;color:var(--green);letter-spacing:-.01em;display:block;margin-bottom:4px}
+.bn-stat-exclusive p{position:relative;font:400 12px Inter;color:rgba(255,255,255,.75);margin:0}
+
+/* --- 3. Cómo usar --- */
+.bn-howto{background:var(--mint);border-radius:20px;padding:28px 32px}
+.bn-howto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+/* Visible por defecto: la animación de entrada es un extra que aplica JS
+   vía .bn-pre (ver script). Si JS no corre por cualquier motivo, el
+   contenido nunca queda oculto — esto es justamente lo que se reportó
+   roto antes. */
+.bn-howto-step{
+  background:#fff;border-radius:12px;padding:18px;
+  transition:opacity .4s cubic-bezier(0.22,1,0.36,1),transform .4s cubic-bezier(0.22,1,0.36,1);
+}
+.bn-howto-step.bn-pre{opacity:0;transform:translateY(16px)}
+.bn-howto-step.bn-pre:nth-child(1){transition-delay:0ms}
+.bn-howto-step.bn-pre:nth-child(2){transition-delay:140ms}
+.bn-howto-step.bn-pre:nth-child(3){transition-delay:280ms}
+.bn-howto-step.bn-pre.bn-in{opacity:1;transform:none}
+.bn-howto-step .ap-icon-box{margin-bottom:14px}
+.bn-step-num{font:400 11px Inter;color:var(--ink-soft);margin:0 0 3px}
+.bn-step-title{font:500 16px Inter;color:var(--green-dark);margin:0 0 4px}
+.bn-step-desc{font:400 13px/1.5 Inter;color:var(--ink-soft);margin:0}
+
+/* --- 4. Filtros --- */
+.bn-filters{display:flex;flex-wrap:wrap;gap:10px}
+.bn-chip{
+  display:inline-flex;align-items:center;gap:5px;
+  font:500 12px Inter;padding:7px 14px;border-radius:18px;
+  background:#fff;border:.5px solid rgba(24,58,42,.16);color:var(--ink-soft);
+  cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.bn-chip:hover{border-color:rgba(24,58,42,.3)}
+.bn-chip.active{background:var(--green);border-color:var(--green);color:var(--green-dark)}
+
+/* --- 5. Grupos + cards --- */
+.bn-group{margin-top:26px}
+.bn-group-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bn-group-icon{width:34px;height:34px;border-radius:10px;background:var(--mint);display:flex;align-items:center;justify-content:center;flex:none}
+.bn-group-icon svg{width:18px;height:18px;stroke:var(--green-dark);stroke-width:1.5;fill:none}
+.bn-group-name{font:500 17px Inter;color:var(--ink);white-space:nowrap}
+.bn-group-count{font:400 13px Inter;color:var(--ink-soft);white-space:nowrap}
+.bn-group-line{flex:1;height:1px;background:rgba(24,58,42,.14);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(0.22,1,0.36,1)}
+.bn-group.bn-in .bn-group-line{transform:scaleX(1)}
+.bn-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
+
+.bn-card{
+  background:#fff;border:.5px solid rgba(24,58,42,.1);border-radius:16px;padding:15px;
+  cursor:pointer;display:flex;flex-direction:column;
+  opacity:0;transform:translateY(18px);
+  transition:opacity .4s cubic-bezier(0.22,1,0.36,1),transform .4s cubic-bezier(0.22,1,0.36,1),box-shadow .3s cubic-bezier(0.22,1,0.36,1);
+}
+.bn-card.bn-in{opacity:1;transform:none}
+.bn-card:hover{transform:translateY(-5px);box-shadow:0 8px 22px rgba(24,58,42,.10)}
+.bn-card.bn-featured{background:var(--lilac)}
+.bn-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.bn-logo-box{
+  width:46px;height:46px;border-radius:12px;overflow:hidden;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;border:.5px solid rgba(24,58,42,.12);
+  transition:transform .3s cubic-bezier(0.22,1,0.36,1);
+}
+.bn-card:hover .bn-logo-box{transform:scale(1.04)}
+.bn-logo-box.bn-logo-icon{background:var(--mint);border-color:transparent}
+.bn-logo-box.bn-logo-icon svg{width:20px;height:20px;stroke:var(--green-dark);stroke-width:1.6;fill:none}
+.bn-logo-box img{width:100%;height:100%;object-fit:contain}
+.bn-logo-box .bn-logo-text{font:500 10px Inter;color:var(--green-dark);text-align:center;padding:2px;line-height:1.2}
+.bn-cat-chip{font:500 9px Inter;color:var(--green-dark);background:var(--mint);padding:4px 8px;border-radius:8px;white-space:nowrap}
+.bn-card.bn-featured .bn-cat-chip{background:var(--green)}
+.bn-card-name{font:500 15px Inter;color:var(--ink);margin:0 0 4px}
+.bn-card-desc{font:400 11px/1.4 Inter;color:var(--ink-soft);margin:0 0 12px}
+.bn-card-data-row{display:flex;align-items:baseline;gap:6px;margin-top:auto}
+.bn-card-data{font:500 30px Inter;color:var(--green-dark);letter-spacing:-.01em;line-height:1}
+.bn-card-data.bn-card-data-word{font-size:26px}
+.bn-card-data-detail{font:400 11px Inter;color:var(--ink-soft)}
+.bn-lima-chip{
+  display:inline-block;margin-top:10px;font:500 9px Inter;color:var(--ink-soft);
+  background:var(--sand);padding:4px 8px;border-radius:8px;
+}
+.bn-card-vigencia{font:400 11px Inter;color:#99A5A0;margin-top:10px}
+
+/* --- Skeleton --- */
+.bn-skel-group{margin-top:26px}
+.bn-skel-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bn-skel-icon{width:34px;height:34px;border-radius:10px}
+.bn-skel-title{width:140px;height:16px;border-radius:6px}
+.bn-skel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
+.bn-skel-card{background:#fff;border:.5px solid rgba(24,58,42,.08);border-radius:16px;padding:15px;height:150px}
+.bn-skel-block{
+  background:linear-gradient(90deg,#EDEFEC 25%,#F5F6F4 37%,#EDEFEC 63%);
+  background-size:200% 100%;animation:bn-shimmer 1.3s infinite linear;
+}
+@media(prefers-reduced-motion:reduce){.bn-skel-block{animation:none;background:#EDEFEC}}
+@keyframes bn-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* --- Estado de error --- */
+.bn-state{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 20px;gap:12px}
+.bn-state svg{width:34px;height:34px;stroke:var(--ink-soft);stroke-width:1.5;fill:none}
+.bn-state p{font:400 15px Inter;color:var(--ink-soft);margin:0;max-width:40ch}
+.bn-retry-btn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--green-dark);
+  font:500 14px Inter;padding:11px 22px;border-radius:12px;border:none;cursor:pointer;margin-top:6px;
+}
+
+/* --- 6. Modal --- */
+.bn-modal-backdrop{
+  position:fixed;inset:0;z-index:500;background:rgba(24,58,42,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .25s cubic-bezier(0.22,1,0.36,1),visibility 0s linear .25s;
+}
+.bn-modal-backdrop.bn-open{opacity:1;visibility:visible;transition:opacity .25s cubic-bezier(0.22,1,0.36,1),visibility 0s linear 0s}
+.bn-modal-panel{
+  position:relative;width:100%;max-width:460px;max-height:85vh;border-radius:18px;background:#fff;
+  overflow-y:auto;overscroll-behavior:contain;padding:22px;
+  opacity:0;transform:scale(.94);
+  transition:opacity .35s cubic-bezier(0.22,1,0.36,1),transform .35s cubic-bezier(0.22,1,0.36,1);
+}
+.bn-modal-backdrop.bn-open .bn-modal-panel{opacity:1;transform:scale(1)}
+@media(prefers-reduced-motion:reduce){
+  .bn-modal-backdrop,.bn-modal-panel{transition:opacity .2s linear!important;transform:none!important}
+}
+.bn-modal-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
+.bn-modal-close{
+  width:30px;height:30px;border-radius:50%;background:var(--mint);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.bn-modal-close svg{width:15px;height:15px;stroke:var(--green-dark);stroke-width:2;fill:none}
+.bn-modal-chip{display:inline-block;background:var(--mint);color:var(--green-dark);font:500 11px Inter;padding:5px 12px;border-radius:100px;margin-bottom:12px}
+.bn-modal-name{font:500 19px Inter;color:var(--ink);margin:0 0 14px}
+.bn-modal-data-row{display:flex;align-items:baseline;gap:8px;margin-bottom:18px}
+.bn-modal-data{font:500 36px Inter;color:var(--green-dark);letter-spacing:-.01em}
+.bn-modal-data-detail{font:400 12px Inter;color:var(--ink-soft)}
+.bn-modal-block{margin-bottom:18px}
+.bn-modal-block-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bn-modal-block-icon{width:28px;height:28px;border-radius:9px;background:var(--mint);display:flex;align-items:center;justify-content:center;flex:none}
+.bn-modal-block-icon svg{width:15px;height:15px;stroke:var(--green-dark);stroke-width:1.6;fill:none}
+.bn-modal-block-head span{font:500 13px Inter;color:var(--green-dark)}
+.bn-modal-block p{font:400 13px/1.6 Inter;color:var(--ink-soft);margin:0}
+.bn-modal-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.bn-modal-info-box{background:var(--mint);border-radius:12px;padding:12px}
+.bn-modal-info-box .bn-info-label{font:500 11px Inter;color:var(--green-dark);margin:0 0 3px}
+.bn-modal-info-box .bn-info-value{font:400 12px Inter;color:var(--ink-soft);margin:0}
+.bn-modal-canjear{background:var(--mint);border-radius:12px;padding:14px;margin-bottom:18px}
+.bn-modal-canjear .bn-info-label{font:500 12px Inter;color:var(--green-dark);margin:0 0 4px}
+.bn-modal-canjear p{font:400 12px/1.5 Inter;color:var(--ink-soft);margin:0}
+.bn-modal-actions{display:flex;flex-direction:column;gap:10px}
+.bn-modal-btn-primary{
+  display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:var(--green-dark);
+  font:500 14px Inter;padding:13px 20px;border-radius:12px;text-align:center;
+}
+.bn-modal-btn-secondary{
+  display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--ink);
+  border:.5px solid rgba(24,58,42,.16);
+  font:500 14px Inter;padding:12px 20px;border-radius:12px;text-align:center;
+}
+
+/* --- 7. FAQ --- */
+.bn-faq-item{border:.5px solid rgba(24,58,42,.12);border-radius:12px;background:#fff;margin-bottom:8px;overflow:hidden}
+.bn-faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px 18px;background:none;border:none;cursor:pointer;text-align:left;
+  font:500 14px Inter;color:var(--green-dark);
+}
+.bn-faq-q svg{width:17px;height:17px;stroke:var(--green-dark);stroke-width:1.8;fill:none;flex:none;transition:transform .3s cubic-bezier(0.22,1,0.36,1)}
+.bn-faq-item.open .bn-faq-q svg{transform:rotate(45deg)}
+.bn-faq-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(0.22,1,0.36,1)}
+.bn-faq-body p{font:400 13px/1.6 Inter;color:var(--ink-soft);margin:0;padding:0 18px 16px}
+
+/* --- 8. Súmate a Allpa+ --- */
+.bn-join{background:var(--mint);border-radius:20px;overflow:hidden;min-height:210px;display:grid;grid-template-columns:1.3fr 1fr}
+.bn-join-content{padding:32px;display:flex;flex-direction:column;justify-content:center}
+.bn-join-content .ap-icon-box{background:#fff;width:38px;height:38px;margin-bottom:14px}
+.bn-join-title{font:500 23px Inter;color:var(--ink);margin:0 0 10px}
+.bn-join-text{font:400 13px/1.5 Inter;color:var(--ink-soft);max-width:44ch;margin:0 0 18px}
+.bn-join-btn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--green-dark);
+  font:500 14px Inter;padding:12px 22px;border-radius:12px;align-self:flex-start;
+}
+.bn-join-photo-wrap{position:relative;overflow:hidden;background:#9DBFAC}
+.bn-join-photo{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transform:scale(1.05);transition:transform .9s cubic-bezier(0.22,1,0.36,1);
+}
+.bn-join.bn-in .bn-join-photo{transform:scale(1)}
+.bn-join-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--mint) 0%,transparent 22%)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1023px){
+  .ap-main{padding:0 24px}
+}
+@media(max-width:767px){
+  .ap-main{padding:0 20px}
+  .bn-hero{padding:32px 20px 20px}
+  .bn-hero h1{font-size:28px}
+  .bn-stats{grid-template-columns:1fr}
+  .bn-stat{border-right:none;border-bottom:.5px solid rgba(24,58,42,.1)}
+  .bn-stat:last-child{border-bottom:none}
+  .bn-stat-exclusive{border-radius:0 0 18px 18px}
+  .bn-howto{padding:20px}
+  .bn-howto-grid{grid-template-columns:1fr;gap:12px;margin-top:16px}
+  .bn-card-grid,.bn-skel-grid{grid-template-columns:1fr}
+  .bn-join{grid-template-columns:1fr}
+  .bn-join-photo-wrap{height:120px;order:-1}
+  .bn-join-fade{background:linear-gradient(180deg,transparent 55%,var(--mint) 100%)}
+  .bn-join-content{padding:20px}
+  .bn-join-btn{width:100%;justify-content:center}
+  .bn-modal-backdrop{padding:10px}
+  .bn-modal-panel{max-height:90vh}
+}

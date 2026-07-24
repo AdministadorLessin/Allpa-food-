@@ -1,0 +1,100 @@
+{
+  "categorias": [
+    { "slug": "salud", "nombre": "Salud & Bienestar", "icono": "heartbeat" },
+    { "slug": "educacion", "nombre": "Educación", "icono": "school" },
+    { "slug": "hogar", "nombre": "Hogar & Lifestyle", "icono": "home" },
+    { "slug": "fitness", "nombre": "Fitness", "icono": "barbell" },
+    { "slug": "alimentacion", "nombre": "Alimentación Saludable", "icono": "leaf" }
+  ],
+  "convenios": [
+    {
+      "id": "lessin",
+      "nombre": "Lessin",
+      "categoria": "educacion",
+      "descripcion": "+100 cursos de bienestar, nutrición y desarrollo personal",
+      "dato": "Gratis",
+      "datoDetalle": "acceso total",
+      "destacado": true,
+      "logo": "../Allpa+/Beneficios/Marcas/lessin.png",
+      "url": "https://lessin.pe",
+      "vigencia": "",
+      "comoCanjear": "",
+      "soloLima": false,
+      "esServicio": false
+    },
+    {
+      "id": "isseg", "nombre": "ISSEG", "categoria": "educacion",
+      "descripcion": "Certificaciones ejecutivas",
+      "dato": "20%", "datoDetalle": "durante 2026",
+      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/Isseg.jpeg",
+      "url": "", "vigencia": "Durante 2026", "comoCanjear": "",
+      "soloLima": false, "esServicio": false
+    },
+    {
+      "id": "restituo", "nombre": "Restituo", "categoria": "salud",
+      "descripcion": "Terapia física y rehabilitación",
+      "dato": "15%", "datoDetalle": "dcto en sesiones",
+      "destacado": false, "logo": "",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": true, "esServicio": false
+    },
+    {
+      "id": "orientacion-nutricional", "nombre": "Orientación Nutricional",
+      "categoria": "salud",
+      "descripcion": "Especialistas para resolver dudas sobre alimentación y hábitos saludables",
+      "dato": "Incluido", "datoDetalle": "consultas sin costo",
+      "destacado": false, "logo": "", "iconoServicio": "apple",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": false, "esServicio": true
+    },
+    {
+      "id": "orientacion-psicologica", "nombre": "Orientación Psicológica",
+      "categoria": "salud",
+      "descripcion": "Acompañamiento profesional para fortalecer tu bienestar emocional",
+      "dato": "Incluido", "datoDetalle": "acompañamiento profesional",
+      "destacado": false, "logo": "", "iconoServicio": "heart-handshake",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": false, "esServicio": true
+    },
+    {
+      "id": "wolf-premium", "nombre": "Wolf Premium Service", "categoria": "hogar",
+      "descripcion": "Lavado de muebles y colchones",
+      "dato": "15%", "datoDetalle": "de descuento",
+      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/wolf-premium.png",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": true, "esServicio": false
+    },
+    {
+      "id": "floreria", "nombre": "Florería Aliada", "categoria": "hogar",
+      "descripcion": "Flores y plantas",
+      "dato": "10%", "datoDetalle": "de descuento",
+      "destacado": false, "logo": "",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": true, "esServicio": false
+    },
+    {
+      "id": "pinturas-jaque", "nombre": "Pinturas Jaque", "categoria": "hogar",
+      "descripcion": "Trabajos de pintura y resane",
+      "dato": "20%", "datoDetalle": "de descuento",
+      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/Pintura.svg",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": true, "esServicio": false
+    },
+    {
+      "id": "goldgym", "nombre": "GoldGym", "categoria": "fitness",
+      "descripcion": "Gimnasios",
+      "dato": "10%", "datoDetalle": "dcto en membresías",
+      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/Goldsgym.png",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": true, "esServicio": false
+    },
+    {
+      "id": "flora-y-fauna", "nombre": "Flora y Fauna", "categoria": "alimentacion",
+      "descripcion": "Productos naturales",
+      "dato": "10%", "datoDetalle": "de descuento",
+      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/flora-y-fauna.png",
+      "url": "", "vigencia": "", "comoCanjear": "",
+      "soloLima": false, "esServicio": false
+    }
+  ]
+}
