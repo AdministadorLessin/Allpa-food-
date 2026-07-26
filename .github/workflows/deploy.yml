@@ -17,5 +17,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /var/www/allpafood.com/
+            cd /var/www/allpafood.com/Allpa-food-
             git pull origin main
