@@ -53,9 +53,8 @@ const DEFAULT_CENTER = { lat: -12.080827968350965, lng: -77.0281646638726 };
 // dominio y por API en Google Cloud Console.
 const MAPS_KEY = process.env.NEXT_PUBLIC_MAPS_KEY;
 
-// Número de WhatsApp de Allpa (reemplazar por el real, formato internacional
-// sin + ni espacios, ej: 51999888777).
-const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || '';
+// Número de WhatsApp de Allpa, formato internacional sin + ni espacios.
+const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER || '51943764730';
 
 // ============================================================
 // Estados del flujo comercial:

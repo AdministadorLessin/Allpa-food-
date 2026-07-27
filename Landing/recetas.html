@@ -29,7 +29,7 @@
     </nav>
     <div class="header-cta-desktop" style="display:flex;gap:11px;align-items:center">
       <a href="https://app.allpafood.com/ingresar" aria-label="Ingresar a mi panel" style="display:inline-flex;align-items:center;gap:7px;color:#16231D;font:600 14px Inter;padding:11px 14px;border-radius:14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16231D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6"></path></svg>Ingresar a mi panel</a>
-      <a href="https://wa.me/51999000111?text=Hola%2C%20quiero%20conocer%20qu%C3%A9%20plan%20de%20Allpa%20Food%20es%20ideal%20para%20m%C3%AD." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#183A2A;color:#FCFCFA;font:600 14px Inter;padding:11px 18px;border-radius:14px">
+      <a id="wa-cta-desktop" href="https://wa.me/51943764730?text=Hola%2C%20quiero%20conocer%20qu%C3%A9%20plan%20de%20Allpa%20Food%20es%20ideal%20para%20m%C3%AD." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#183A2A;color:#FCFCFA;font:600 14px Inter;padding:11px 18px;border-radius:14px">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3CFB9F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>WhatsApp</a>
       <a href="index.html#planes" style="display:inline-flex;align-items:center;gap:8px;background:#3CFB9F;color:#16231D;font:700 14px Inter;padding:11px 20px;border-radius:14px">Quiero mi plan</a>
     </div>
@@ -44,7 +44,7 @@
       <a href="index.html#nosotros">Nosotros</a>
       <a href="allpaplus.html">Allpa+</a>
       <a href="https://app.allpafood.com/ingresar" aria-label="Ingresar a mi panel">Ingresar a mi panel</a>
-      <a href="https://wa.me/51999000111?text=Hola%2C%20quiero%20conocer%20qu%C3%A9%20plan%20de%20Allpa%20Food%20es%20ideal%20para%20m%C3%AD." target="_blank" class="mobile-menu-cta-wa"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#3CFB9F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>WhatsApp</a>
+      <a id="wa-cta-mobile" href="https://wa.me/51943764730?text=Hola%2C%20quiero%20conocer%20qu%C3%A9%20plan%20de%20Allpa%20Food%20es%20ideal%20para%20m%C3%AD." target="_blank" class="mobile-menu-cta-wa"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#3CFB9F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>WhatsApp</a>
       <a href="index.html#planes" class="mobile-menu-cta-primary">Quiero mi plan</a>
     </div>
   </div>
@@ -117,7 +117,7 @@
       <div>
         <h4 style="font:600 13px Inter;color:#FCFCFA;margin:0 0 16px;letter-spacing:.04em">Contacto</h4>
         <div class="footer-links-col" style="display:flex;flex-direction:column;gap:11px">
-          <a href="https://wa.me/51999000111?text=Hola%2C%20quiero%20conocer%20qu%C3%A9%20plan%20de%20Allpa%20Food%20es%20ideal%20para%20m%C3%AD." target="_blank" style="font:400 14px Inter;color:rgba(234,251,243,0.6)">WhatsApp</a>
+          <a id="wa-cta-footer" href="https://wa.me/51943764730?text=Hola%2C%20quiero%20conocer%20qu%C3%A9%20plan%20de%20Allpa%20Food%20es%20ideal%20para%20m%C3%AD." target="_blank" style="font:400 14px Inter;color:rgba(234,251,243,0.6)">WhatsApp</a>
           <span style="font:400 14px Inter;color:rgba(234,251,243,0.6)">Lima, Perú</span>
           <span style="font:400 14px Inter;color:rgba(234,251,243,0.6)">Lun a Sáb · 7am – 8pm</span>
         </div>
@@ -135,6 +135,13 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var POSTS_URL = 'https://admin-landing.allpafood.com/wp-json/wp/v2/posts?per_page=100';
   var CATS_URL = 'https://admin-landing.allpafood.com/wp-json/wp/v2/categories';
+  var WA_NUMBER = '51943764730';
+  function waLink(msg){ return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg); }
+  var WA_PLAN_MSG = 'Hola, quiero conocer qué plan de Allpa Food es ideal para mí.';
+  ['wa-cta-desktop', 'wa-cta-mobile', 'wa-cta-footer'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.href = waLink(WA_PLAN_MSG);
+  });
 
   /* ================= Header: scroll glass ================= */
   var header = document.getElementById('site-header');
