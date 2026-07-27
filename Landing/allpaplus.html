@@ -83,7 +83,7 @@
         <div class="ap-access-bottom">
           <div>
             <p class="ap-access-label">Recetas saludables</p>
-            <span class="ap-access-count"><span class="ap-counter" data-target="50">0</span>+</span>
+            <span class="ap-access-count"><span class="ap-counter" id="ap-count-recetas" data-target="4">0</span>+</span>
           </div>
           <span class="ap-access-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#183A2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
         </div>
@@ -108,7 +108,7 @@
         <div class="ap-access-bottom">
           <div>
             <p class="ap-access-label">Beneficios y convenios</p>
-            <span class="ap-access-count"><span class="ap-counter" data-target="50">0</span>+</span>
+            <span class="ap-access-count"><span class="ap-counter" id="ap-count-beneficios" data-target="10">0</span>+</span>
           </div>
           <span class="ap-access-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#183A2A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
         </div>
@@ -139,29 +139,45 @@
   <section class="ap-block ap-main">
     <h2 class="ap-title ap-reveal">Beneficios por categoría</h2>
     <div class="ap-cat-grid">
-      <div class="ap-cat-card ap-reveal">
+      <div class="ap-cat-card ap-reveal" data-cat-slug="salud">
+        <span class="ap-icon-box ap-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M3.5 8.5h4.7l1.6-3.2L12.5 13l1.6-3.2h5.4"></path></svg></span>
+        <div class="ap-cat-text">
+          <p class="ap-cat-name">Salud & Bienestar</p>
+          <p class="ap-cat-desc">Terapia y orientación profesional</p>
+        </div>
+        <span class="ap-cat-count ap-counter" data-target="3">0</span>
+      </div>
+      <div class="ap-cat-card ap-reveal" data-cat-slug="hogar">
+        <span class="ap-icon-box ap-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10.5 9-7.5 9 7.5"></path><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"></path></svg></span>
+        <div class="ap-cat-text">
+          <p class="ap-cat-name">Hogar & Lifestyle</p>
+          <p class="ap-cat-desc">Servicios para tu casa</p>
+        </div>
+        <span class="ap-cat-count ap-counter" data-target="3">0</span>
+      </div>
+      <div class="ap-cat-card ap-reveal" data-cat-slug="educacion">
+        <span class="ap-icon-box ap-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"></path><path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"></path></svg></span>
+        <div class="ap-cat-text">
+          <p class="ap-cat-name">Educación</p>
+          <p class="ap-cat-desc">Lessin y certificaciones</p>
+        </div>
+        <span class="ap-cat-count ap-counter" data-target="2">0</span>
+      </div>
+      <div class="ap-cat-card ap-reveal" data-cat-slug="fitness">
         <span class="ap-icon-box ap-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="5.5" y="10.5" width="13" height="3" rx="1"></rect></svg></span>
         <div class="ap-cat-text">
           <p class="ap-cat-name">Fitness</p>
           <p class="ap-cat-desc">Gimnasios y entrenamiento</p>
         </div>
-        <span class="ap-cat-count ap-counter" data-target="18">0</span>
+        <span class="ap-cat-count ap-counter" data-target="1">0</span>
       </div>
-      <div class="ap-cat-card ap-reveal">
-        <span class="ap-icon-box ap-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"></path><path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"></path></svg></span>
-        <div class="ap-cat-text">
-          <p class="ap-cat-name">Educación</p>
-          <p class="ap-cat-desc">Lessin y formación</p>
-        </div>
-        <span class="ap-cat-count ap-counter" data-target="12">0</span>
-      </div>
-      <div class="ap-cat-card ap-reveal">
+      <div class="ap-cat-card ap-reveal" data-cat-slug="alimentacion">
         <span class="ap-icon-box ap-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6"></path></svg></span>
         <div class="ap-cat-text">
-          <p class="ap-cat-name">Nutrición</p>
-          <p class="ap-cat-desc">Tiendas y suplementos</p>
+          <p class="ap-cat-name">Alimentación Saludable</p>
+          <p class="ap-cat-desc">Productos naturales</p>
         </div>
-        <span class="ap-cat-count ap-counter" data-target="20">0</span>
+        <span class="ap-cat-count ap-counter" data-target="1">0</span>
       </div>
     </div>
   </section>
@@ -183,14 +199,14 @@
         <div class="ap-howto-step">
           <span class="ap-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"></circle><path d="M10.5 12.5 20 3"></path><path d="M17 6l3 3"></path><path d="M14 9l2 2"></path></svg></span>
           <p class="ap-howto-step-num">Paso 2</p>
-          <p class="ap-howto-step-title">Recibes tu acceso</p>
-          <p class="ap-howto-step-desc">Te llega por WhatsApp al confirmar.</p>
+          <p class="ap-howto-step-title">Escribes por WhatsApp</p>
+          <p class="ap-howto-step-desc">Nos indicas qué beneficio quieres usar.</p>
         </div>
         <div class="ap-howto-step">
           <span class="ap-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 15 6-6"></path><circle cx="9.5" cy="9.5" r="1"></circle><circle cx="14.5" cy="14.5" r="1"></circle></svg></span>
           <p class="ap-howto-step-num">Paso 3</p>
           <p class="ap-howto-step-title">Usas los convenios</p>
-          <p class="ap-howto-step-desc">Presentas tu acceso en cada marca aliada.</p>
+          <p class="ap-howto-step-desc">Validamos y te enviamos el código.</p>
         </div>
       </div>
     </div>
@@ -201,16 +217,18 @@
     <h2 class="ap-title ap-reveal">Marcas que ya están con Allpa+</h2>
     <div class="ap-brands-wrap ap-reveal">
       <div class="ap-brands-track" id="brands-track">
-        <div class="ap-brand-slot">Marca 1</div>
-        <div class="ap-brand-slot">Marca 2</div>
-        <div class="ap-brand-slot">Marca 3</div>
-        <div class="ap-brand-slot">Marca 4</div>
-        <div class="ap-brand-slot">Marca 5</div>
-        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true">Marca 1</div>
-        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true">Marca 2</div>
-        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true">Marca 3</div>
-        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true">Marca 4</div>
-        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true">Marca 5</div>
+        <div class="ap-brand-slot"><img src="../Allpaplus/Beneficios/Marcas/lessin.png" alt="Lessin" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot"><img src="../Allpaplus/Beneficios/Marcas/Isseg.jpeg" alt="ISSEG" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot"><img src="../Allpaplus/Beneficios/Marcas/wolf-premium.png" alt="Wolf Premium Service" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot"><img src="../Allpaplus/Beneficios/Marcas/Pintura.svg" alt="Pinturas Jaque" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot"><img src="../Allpaplus/Beneficios/Marcas/Goldsgym.png" alt="GoldGym" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot"><img src="../Allpaplus/Beneficios/Marcas/flora-y-fauna.png" alt="Flora y Fauna" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true"><img src="../Allpaplus/Beneficios/Marcas/lessin.png" alt="" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true"><img src="../Allpaplus/Beneficios/Marcas/Isseg.jpeg" alt="" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true"><img src="../Allpaplus/Beneficios/Marcas/wolf-premium.png" alt="" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true"><img src="../Allpaplus/Beneficios/Marcas/Pintura.svg" alt="" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true"><img src="../Allpaplus/Beneficios/Marcas/Goldsgym.png" alt="" style="max-width:78%;max-height:58%;object-fit:contain"></div>
+        <div class="ap-brand-slot ap-brand-dup" aria-hidden="true"><img src="../Allpaplus/Beneficios/Marcas/flora-y-fauna.png" alt="" style="max-width:78%;max-height:58%;object-fit:contain"></div>
       </div>
     </div>
   </section>
@@ -464,6 +482,38 @@
     });
   }, { threshold: 0.4 });
   document.querySelectorAll('.ap-counter').forEach(function(el){ counterIo.observe(el); });
+
+  /* ---------- Datos reales: conteo de recetas (WP) y beneficios (JSON) ---------- */
+  function setCounterValue(el, value){
+    if (!el) return;
+    el.setAttribute('data-target', String(value));
+    el.textContent = value.toLocaleString('es-PE');
+  }
+
+  fetch('https://admin-landing.allpafood.com/wp-json/wp/v2/categories?per_page=100')
+    .then(function(r){ if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+    .then(function(cats){
+      var cat = cats.find(function(c){ return c.slug === 'recetas-saludables'; });
+      if (cat && typeof cat.count === 'number'){
+        setCounterValue(document.getElementById('ap-count-recetas'), cat.count);
+      }
+    })
+    .catch(function(e){ console.warn('[Allpa+] No se pudo obtener el conteo real de recetas, se mantiene el valor de referencia.', e); });
+
+  fetch('data/beneficios.json')
+    .then(function(r){ if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+    .then(function(data){
+      var convenios = data.convenios || [];
+      setCounterValue(document.getElementById('ap-count-beneficios'), convenios.length);
+      var counts = {};
+      convenios.forEach(function(c){ counts[c.categoria] = (counts[c.categoria] || 0) + 1; });
+      document.querySelectorAll('.ap-cat-card[data-cat-slug]').forEach(function(card){
+        var slug = card.getAttribute('data-cat-slug');
+        var countEl = card.querySelector('.ap-cat-count');
+        setCounterValue(countEl, counts[slug] || 0);
+      });
+    })
+    .catch(function(e){ console.warn('[Allpa+] No se pudo obtener beneficios.json, se mantienen los valores de referencia.', e); });
 
   /* ---------- Parallax on access-card photos ---------- */
   var parallaxEls = Array.from(document.querySelectorAll('.ap-parallax'));
