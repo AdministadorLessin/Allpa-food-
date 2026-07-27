@@ -15,7 +15,7 @@
       "dato": "Gratis",
       "datoDetalle": "acceso total",
       "destacado": true,
-      "logo": "../Allpa+/Beneficios/Marcas/lessin.png",
+      "logo": "../Allpaplus/Beneficios/Marcas/lessin.png",
       "url": "https://lessin.pe",
       "vigencia": "",
       "comoCanjear": "",
@@ -26,7 +26,7 @@
       "id": "isseg", "nombre": "ISSEG", "categoria": "educacion",
       "descripcion": "Certificaciones ejecutivas",
       "dato": "20%", "datoDetalle": "durante 2026",
-      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/Isseg.jpeg",
+      "destacado": false, "logo": "../Allpaplus/Beneficios/Marcas/Isseg.jpeg",
       "url": "", "vigencia": "Durante 2026", "comoCanjear": "",
       "soloLima": false, "esServicio": false
     },
@@ -60,7 +60,7 @@
       "id": "wolf-premium", "nombre": "Wolf Premium Service", "categoria": "hogar",
       "descripcion": "Lavado de muebles y colchones",
       "dato": "15%", "datoDetalle": "de descuento",
-      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/wolf-premium.png",
+      "destacado": false, "logo": "../Allpaplus/Beneficios/Marcas/wolf-premium.png",
       "url": "", "vigencia": "", "comoCanjear": "",
       "soloLima": true, "esServicio": false
     },
@@ -76,7 +76,7 @@
       "id": "pinturas-jaque", "nombre": "Pinturas Jaque", "categoria": "hogar",
       "descripcion": "Trabajos de pintura y resane",
       "dato": "20%", "datoDetalle": "de descuento",
-      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/Pintura.svg",
+      "destacado": false, "logo": "../Allpaplus/Beneficios/Marcas/Pintura.svg",
       "url": "", "vigencia": "", "comoCanjear": "",
       "soloLima": true, "esServicio": false
     },
@@ -84,7 +84,7 @@
       "id": "goldgym", "nombre": "GoldGym", "categoria": "fitness",
       "descripcion": "Gimnasios",
       "dato": "10%", "datoDetalle": "dcto en membresías",
-      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/Goldsgym.png",
+      "destacado": false, "logo": "../Allpaplus/Beneficios/Marcas/Goldsgym.png",
       "url": "", "vigencia": "", "comoCanjear": "",
       "soloLima": true, "esServicio": false
     },
@@ -92,7 +92,7 @@
       "id": "flora-y-fauna", "nombre": "Flora y Fauna", "categoria": "alimentacion",
       "descripcion": "Productos naturales",
       "dato": "10%", "datoDetalle": "de descuento",
-      "destacado": false, "logo": "../Allpa+/Beneficios/Marcas/flora-y-fauna.png",
+      "destacado": false, "logo": "../Allpaplus/Beneficios/Marcas/flora-y-fauna.png",
       "url": "", "vigencia": "", "comoCanjear": "",
       "soloLima": false, "esServicio": false
     }

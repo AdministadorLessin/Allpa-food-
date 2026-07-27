@@ -376,7 +376,7 @@ p.ap-p{font:400 17px/1.5 Inter;color:var(--ink-soft);max-width:60ch}
 .ap-cta-final.ap-in .ap-cta-photo-wrap{transform:scale(1)}
 .ap-cta-photo{
   position:absolute;inset:-15% 0;
-  /* background-image:url('../Allpa+/Avatars/cta.png'); */
+  /* background-image:url('../Allpaplus/Avatars/cta.png'); */
   background-size:cover;background-position:center;
   will-change:transform;
 }
