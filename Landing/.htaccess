@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# --- 301: URLs viejas con .html redirigen a las URLs limpias ---
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^ /? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+beneficios\.html[\s?] [NC]
+RewriteRule ^ /beneficios [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+recetas\.html[\s?] [NC]
+RewriteRule ^ /recetas [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/+allpaplus\.html[\s?] [NC]
+RewriteRule ^ /allpaplus [R=301,L]
+
+# --- Sirve el archivo .html correspondiente para cada URL limpia (sin redirigir, sin mostrar la extensión) ---
+RewriteRule ^beneficios/?$ beneficios.html [L]
+RewriteRule ^recetas/?$ recetas.html [L]
+RewriteRule ^allpaplus/?$ allpaplus.html [L]
+
+DirectoryIndex index.html
