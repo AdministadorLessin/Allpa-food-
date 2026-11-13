@@ -644,6 +644,50 @@ html.cargando,html.cargando body{overflow:hidden}
 .wsp__a .btn{flex:1;justify-content:center}
 @media(max-width:560px){.wsp{right:16px;bottom:16px}}
 @media(prefers-reduced-motion:reduce){.wsp__aro{animation:none}}
+/* ---------- el menu de la semana, en vivo ---------- */
+.mv__vivo::before{animation:mvLatido 1.8s var(--ease) infinite}
+@keyframes mvLatido{0%,100%{box-shadow:0 0 0 0 rgba(60,251,159,.7)}60%{box-shadow:0 0 0 7px rgba(60,251,159,0)}}
+.mv__dias{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 4px;margin:0 -2px 22px}
+.mv__dias::-webkit-scrollbar{display:none}
+.mv__dia{flex:none;border:0;cursor:pointer;border-radius:18px;padding:11px 18px;min-width:84px;text-align:left;
+  background:var(--capa);box-shadow:inset 0 0 0 1px var(--borde);color:var(--texto);font:inherit;
+  transition:background .25s var(--ease),color .25s var(--ease),transform .2s var(--ease)}
+.mv__dia:hover{transform:translateY(-2px)}
+.mv__dia small{display:block;font:500 11.5px/1 Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--tenue);margin-bottom:6px}
+.mv__dia b{font:700 20px/1 "Inter Tight",sans-serif;letter-spacing:-.03em}
+.mv__dia[aria-selected="true"]{background:var(--oscuro);color:#FCFCFA;box-shadow:none}
+.mv__dia[aria-selected="true"] small{color:var(--menta)}
+.mv__g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px)}
+.mv__p{background:var(--capa);border-radius:28px;overflow:hidden;box-shadow:var(--shm);display:flex;flex-direction:column;
+  opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mv__p.on{opacity:1;transform:none}
+.mv__p:nth-child(2){transition-delay:.07s}.mv__p:nth-child(3){transition-delay:.14s}
+.mv__f{position:relative;aspect-ratio:1/1;background:var(--capa2);overflow:hidden}
+.mv__f img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.mv__p:hover .mv__f img{transform:scale(1.04)}
+.mv__op{position:absolute;top:14px;left:14px;font:600 12px/1 Inter;padding:8px 12px;border-radius:var(--rp);
+  background:rgba(252,252,250,.92);color:var(--texto);backdrop-filter:blur(8px)}
+.mv__t{padding:18px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.mv__t h3{font-size:clamp(18px,1.6vw,21px);line-height:1.18;letter-spacing:-.025em}
+.mv__ch{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.mv__ch span{font:500 12.5px/1 Inter;padding:8px 11px;border-radius:var(--rp);background:var(--capa2);color:var(--suave)}
+.mv__ch span b{color:var(--texto);font-weight:600}
+.mv__ch span.m{background:rgba(60,251,159,.18);color:var(--tintamenta)}
+.mv__ch span.m b{color:var(--tintamenta)}
+.mv__pie{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:clamp(20px,2.6vw,32px)}
+.mv__pie p{color:var(--suave);font-size:15px;max-width:52ch}
+.mv__pie p b{color:var(--texto);font-weight:600}
+.mv__vacio{grid-column:1/-1;padding:40px 24px;border-radius:28px;background:var(--capa);text-align:center;color:var(--suave)}
+.mv__esq{aspect-ratio:1/1.32;border-radius:28px;background:linear-gradient(100deg,var(--capa2) 30%,var(--capa3) 50%,var(--capa2) 70%);
+  background-size:300% 100%;animation:mvBrillo 1.4s linear infinite}
+@keyframes mvBrillo{to{background-position:-100% 0}}
+@media(max-width:860px){
+  .mv__g{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;
+    scrollbar-width:none;margin:0 -18px;padding:0 18px 6px}
+  .mv__g::-webkit-scrollbar{display:none}
+  .mv__p,.mv__esq{scroll-snap-align:center}
+}
+@media(prefers-reduced-motion:reduce){.mv__p{opacity:1;transform:none;transition:none}.mv__vivo::before,.mv__esq{animation:none}}
 </style>
 <noscript><style>.carga{display:none}html.cargando,html.cargando body{overflow:visible}.rv{opacity:1;transform:none}.paso{opacity:1}.pant{position:relative;opacity:1;transform:none}.fono__p{height:auto}</style></noscript>
 </head>
@@ -703,7 +747,7 @@ html.cargando,html.cargando body{overflow:hidden}
 <nav class="nav" id="nav">
   <div class="nav__in">
     <a class="marca" href="#"><svg width="25" height="26" viewBox="0 0 94 97" aria-hidden="true"><use href="#hj" fill="#3CFB9F"></use><use href="#tl" fill="#16231D"></use></svg><span>Allpa Food</span></a>
-    <div class="nav__l"><a href="#app">El app</a><a href="#nutricion">Nutrición</a><a href="#cobertura">Cobertura</a><a href="#planes">Planes</a><a href="allpaplus.html">Allpa+</a><a href="empresas.html">Empresas</a></div>
+    <div class="nav__l"><a href="#app">El app</a><a href="#nutricion">Nutrición</a><a href="#menu">Menú</a><a href="#cobertura">Cobertura</a><a href="#planes">Planes</a><a href="allpaplus.html">Allpa+</a><a href="empresas.html">Empresas</a></div>
     <div class="nav__f">
       <a class="btn btn--linea btn--sm" href="https://app.allpafood.com/ingresar" target="_blank" rel="noopener">Ingresar<span class="p">→</span></a>
       <a class="btn btn--menta btn--sm" href="#planes">Ver planes<span class="p">→</span></a>
@@ -1022,6 +1066,24 @@ html.cargando,html.cargando body{overflow:hidden}
         </div>
         <div class="car__p" id="car-p"></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENU DE LA SEMANA (en vivo) ===================== -->
+<section id="menu" style="padding-top:0">
+  <div class="env">
+    <div class="cabf">
+      <div class="rv"><span class="ojo mv__vivo">Menú en vivo</span><h2 class="tit">Esto se come estos días.</h2></div>
+      <p class="sub rv" data-d="1">Es la misma carta que hoy ven nuestros clientes en el app. Cada día eliges uno de los tres almuerzos.</p>
+    </div>
+    <div class="mv__dias" id="mv-dias" role="tablist" aria-label="Días de la semana"></div>
+    <div class="mv__g" id="mv-g" aria-live="polite">
+      <div class="mv__esq"></div><div class="mv__esq"></div><div class="mv__esq"></div>
+    </div>
+    <div class="mv__pie rv">
+      <p id="mv-nota">Cada plato con sus calorías y su proteína calculadas.</p>
+      <a class="btn btn--oscuro" href="#planes">Quiero mis almuerzos<span class="p">→</span></a>
     </div>
   </div>
 </section>
@@ -1500,6 +1562,71 @@ html.cargando,html.cargando body{overflow:hidden}
     s.onerror = volverAlRespaldo;
     document.head.appendChild(s);
   }
+})();
+</script>
+<script>
+/* Menu de la semana en vivo: sale del mismo servidor que el app, asi que lo
+   que se ve aqui es exactamente lo programado en el panel. Se pide recien
+   cuando la seccion esta por verse, para no frenar la carga de la pagina. */
+(function(){
+  var API = 'https://api.allpafood.com/dev/api-af/v1/public/menu/schedule';
+  var sec = document.getElementById('menu'); if (!sec) return;
+  var cajaDias = document.getElementById('mv-dias'), grilla = document.getElementById('mv-g'), nota = document.getElementById('mv-nota');
+  var DIAS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  var DIAS_L = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  function iso(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+  function fecha(t){ var p=t.split('-'); return new Date(+p[0], p[1]-1, +p[2]); }
+  function esc(t){ return String(t||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function prop(m, n){ var x=(m.properties||[]).filter(function(p){return p.name===n;})[0]; return x ? Math.round(x.value) : null; }
+  function limpio(n){ return String(n||'').replace(/\s+/g,' ').trim().replace(/\.$/,''); }
+
+  var dias = [], hoy = new Date(); hoy.setHours(0,0,0,0);
+  function pintarDias(sel){
+    cajaDias.innerHTML = dias.map(function(d,i){
+      var f = fecha(d.fecha), dif = Math.round((f - hoy)/864e5);
+      var et = dif===0 ? 'Hoy' : dif===1 ? 'Mañana' : DIAS[f.getDay()];
+      return '<button type="button" role="tab" class="mv__dia" aria-selected="'+(i===sel)+'" data-i="'+i+'"><small>'+et+'</small><b>'+DIAS[f.getDay()]+' '+f.getDate()+'</b></button>';
+    }).join('');
+  }
+  function pintarPlatos(i){
+    var d = dias[i];
+    grilla.innerHTML = d.platos.map(function(m,k){
+      var kc = prop(m,'calorias'), pr = prop(m,'proteinas');
+      return '<article class="mv__p"><div class="mv__f">'+
+        (m.imageUrl ? '<img src="'+esc(m.imageUrl)+'" alt="'+esc(limpio(m.name))+'" loading="lazy">' : '')+
+        '<span class="mv__op">Opción '+(k+1)+'</span></div><div class="mv__t"><h3>'+esc(limpio(m.name))+'</h3><div class="mv__ch">'+
+        (kc!=null ? '<span><b>'+kc+'</b> kcal</span>' : '')+(pr!=null ? '<span class="m"><b>'+pr+' g</b> de proteína</span>' : '')+
+        '</div></div></article>';
+    }).join('');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      [].forEach.call(grilla.children, function(c){ c.classList.add('on'); });
+    }); });
+    grilla.scrollLeft = 0;
+    var f = fecha(d.fecha);
+    nota.innerHTML = d.bebida
+      ? 'El '+DIAS_L[f.getDay()]+' viene con <b>'+esc(limpio(d.bebida).toLowerCase())+'</b>. Cada plato con sus calorías y su proteína calculadas.'
+      : 'Cada plato con sus calorías y su proteína calculadas.';
+  }
+  cajaDias.addEventListener('click', function(e){
+    var b = e.target.closest('.mv__dia'); if (!b) return;
+    var i = +b.getAttribute('data-i'); pintarDias(i); pintarPlatos(i);
+  });
+  function sinMenu(){ cajaDias.innerHTML=''; grilla.innerHTML='<p class="mv__vacio">Estamos armando el menú de la próxima semana. Míralo muy pronto aquí y en el app.</p>'; }
+  function cargar(){
+    var hasta = new Date(hoy); hasta.setDate(hasta.getDate()+14);
+    fetch(API+'?startDate='+iso(hoy)+'&endDate='+iso(hasta)).then(function(r){ return r.json(); }).then(function(r){
+      dias = (r.data||[]).map(function(d){
+        var g = {}; (d.menuTypeGroups||[]).forEach(function(x){ g[x.type] = (x.menuTypes||[]).map(function(t){ return t.menu; }); });
+        return { fecha: d.localDate, platos: g.lunch||[], bebida: (g.drinks||[])[0] && g.drinks[0].name };
+      }).filter(function(d){ return d.platos.length; }).sort(function(a,b){ return a.fecha < b.fecha ? -1 : 1; }).slice(0,5);
+      if (!dias.length) return sinMenu();
+      pintarDias(0); pintarPlatos(0);
+    }).catch(sinMenu);
+  }
+  if ('IntersectionObserver' in window) {
+    var o = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ o.disconnect(); cargar(); } }, { rootMargin: '700px 0px' });
+    o.observe(sec);
+  } else cargar();
 })();
 </script>
 </body>
